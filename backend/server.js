@@ -5,32 +5,12 @@ require("dotenv").config();
 
 const app = express();
 
-// Define allowed origins
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://charging-app.netlify.app",
-  "https://charging-app.onrender.com",
-];
-
-// Configure CORS
+// Configure CORS to allow requests from your frontend
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (e.g., direct API calls) or origins in the allowed list
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow these methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
-    credentials: true, // Optional: for future use with cookies or auth headers
+    origin: ["http://localhost:5173", "https://charging-app.netlify.app"], // Update with your Netlify URL after deployment
   })
 );
-
-// Handle preflight requests explicitly for all routes
-app.options("*", cors());
 
 app.use(express.json());
 
@@ -45,12 +25,12 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    const PORT = process.env.PORT || 5000;
+    const PORT = process.env.PORT || 5000; // Fallback to 5000 if PORT is not defined
     app.listen(PORT, () =>
       console.log(`Server running on http://localhost:${PORT}`)
     );
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
-    process.exit(1);
+    process.exit(1); // Exit the process if the connection fails
   });
