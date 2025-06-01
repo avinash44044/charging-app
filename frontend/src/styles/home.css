@@ -1,0 +1,37 @@
+/* home.css */
+.home-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.charger-list {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.charger-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e9ecef;
+  padding: 0.5rem 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transitions for hover */
+}
+
+/* Hover effect for charger-item */
+.charger-item:hover {
+  background-color: #f8f9fa; /* Subtle background change */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  cursor: pointer; /* Indicate it's interactive */
+}
