@@ -8,7 +8,7 @@ const app = express();
 // Configure CORS to allow requests from your frontend
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://your-site-name.netlify.app"], // Update with your Netlify URL after deployment
+    origin: ["http://localhost:5173", "https://charging-app.netlify.app/"], // Update with your Netlify URL after deployment
   })
 );
 
