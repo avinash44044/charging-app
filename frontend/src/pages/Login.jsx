@@ -28,7 +28,7 @@ export default function Login() {
 
   return (
     <div className="auth-container">
-      <h1>"charging station app"</h1>
+      <h1>"charging app"</h1>
       <h2>Login</h2>
       <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
